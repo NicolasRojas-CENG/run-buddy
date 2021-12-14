@@ -122,3 +122,25 @@ section {
   padding: 10px 20px;
   background-color: #024e76;
 }
+
+/* This section is for the 'What We Do'.*/
+.intro {
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 55px;
+  color: #024e76;
+  margin-bottom: 35px;
+  display: inline-block;
+  border-bottom: solid 3px #fce138;
+  padding: 0 100px 20px 100px;
+}
+
+.intro p {
+  width: 80%;
+  font-size: 20px;
+  color: #39a6b2;
+  line-height: 1.7;
+  margin: 0 auto;
+}
