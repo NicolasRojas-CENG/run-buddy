@@ -182,3 +182,51 @@ section {
   font-size: 23px;
   color: #39a6b2;
 }
+
+/* This section is for the 'Meet The Trainers'.*/
+.trainers {
+  text-align: center;
+}
+
+.trainer {
+  width: 900px;
+  overflow: auto;
+  color: #fce138;
+  background: #024e76;
+  margin: 0 auto 30px auto;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.trainer img {
+  width: 35%;
+  float: left;
+}
+
+.trainer-bio {
+  width: 65%;
+  float: left;
+  padding: 35px;
+}
+
+.trainer-bio h3 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.trainer-bio h4 {
+  font-size: 26px;
+  margin-bottom: 25px;
+  font-weight: lighter;
+}
+
+.trainer-bio p {
+  font-size: 17px;
+  line-height: 1.3;
+}
