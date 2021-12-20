@@ -12,8 +12,11 @@ body {
 /* This section of styling is for the header. */
 
 header {
+  display: flex;
+  flex-wrap: wrap;
   padding: 20px 35px;
   background-color: #39a6b2;
+  justify-content: space-between;
 }
 
 header a {
@@ -23,13 +26,11 @@ header a {
 header h1 {
   margin: 0;
   font-size: 36px;
-  display: inline;
   color: #fce138;
   font-weight: bold;
 }
 
 header nav {
-  float: right;
   margin: 7px 0;
 }
 
