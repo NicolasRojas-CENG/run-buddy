@@ -1,3 +1,9 @@
+:root {
+  --primary-colour: #fce138;
+  --secondary-colour: #024e76;
+  --tertiary-colour: #39a6b2;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +11,7 @@
 }
 
 body {
-  color: #39a6b2;
+  color: var(--tertiary-colour);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -14,11 +20,12 @@ body {
 header {
   top: 0;
   display: flex;
+  z-index: 9999;
   flex-wrap: wrap;
   position: -webkit-sticky;
   position: sticky;
   padding: 20px 35px;
-  background-color: #39a6b2;
+  background-color: var(--tertiary-colour);
   justify-content: space-between;
   background-image: url(../images/hero-bg.jpg);
   background-size: cover;
@@ -27,13 +34,13 @@ header {
 }
 
 header a {
-  color: #fce138;
+  color: var(--primary-colour);
   text-decoration: none;
 }
 header h1 {
   margin: 0;
   font-size: 36px;
-  color: #fce138;
+  color: var(--primary-colour);
   font-weight: bold;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -58,9 +65,9 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-  color: #024e76;
+  color: var(--secondary-colour);
   text-shadow: none;
-  background: #fce138;
+  background: var(--primary-colour);
   border-radius: 15px;
 }
 
@@ -71,13 +78,13 @@ footer {
   display: flex;
   flex-wrap: wrap;
   padding: 40px 35px;
-  background-color: #fce138;
+  background-color: var(--primary-colour);
   justify-content: space-between;
 }
 
 footer h2 {
   margin: 0;
-  color: #024e76;
+  color: var(--secondary-colour);
   font-size: 30px;
 }
 
@@ -87,7 +94,7 @@ footer div {
 }
 
 footer a {
-  color: #024e76;
+  color: var(--secondary-colour);
 }
 
 section {
@@ -118,7 +125,7 @@ section {
 
 .hero-cta h2 {
   font-size: 55px;
-  color: #fce138;
+  color: var(--primary-colour);
   font-style: italic;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -127,9 +134,9 @@ section {
   width: 40%;
   margin: 3.5%;
   padding: 20px;
-  color: #024e76;
+  color: var(--secondary-colour);
   border-radius: 15px;
-  border: 3px solid #024e76;
+  border: 3px solid var(--secondary-colour);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   background-color: rgba(252, 255, 56, 0.8);
 }
@@ -147,11 +154,11 @@ section {
   width: 100%;
   display: block;
   font-size: 16px;
-  color: #024e76;
+  color: var(--secondary-colour);
   padding: 7px 15px;
   margin-bottom: 15px;
   border-radius: 10px;
-  border: 1px solid #024e76;
+  border: 1px solid var(--secondary-colour);
   background-color: rgba(255,255,255, 0.75);
 }
 
@@ -160,17 +167,78 @@ section {
   outline: none;
 }
 
+/*This section is for the custom radio/checkbox buttons.*/
+.checkbox-wrapper input, .radio-wrapper input {
+  opacity: 0;
+}
+
+.checkbox-wrapper label, .radio-wrapper label {
+  left: 10px;
+  margin: 10px;
+  line-height: 1.6;
+  position: relative;
+}
+
+.checkbox-wrapper label::before, .radio-wrapper label::before {
+  top: -4px;
+  content: "";
+  width: 20px;
+  left: -30px;
+  height: 20px;
+  position: absolute; 
+  border: 1px solid var(--secondary-colour);  
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.radio-wrapper label::before {
+  border-radius: 50%;
+}
+
+.radio-wrapper label::after {
+  top: -3px;
+  content: "";
+  width: 20px;
+  left: -29px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  background: var(--secondary-colour);
+  background-image: radial-gradient(circle, var(--tertiary-colour), var(--secondary-colour));
+}
+
+.checkbox-wrapper label::after {
+  top: 1px;
+  content: "";
+  height: 6px;
+  width: 14px;
+  left: -26px;
+  position: absolute;
+  transform: rotate(-58deg);
+  border-left: 2px solid var(--secondary-colour);
+  border-bottom: 2px solid var(--secondary-colour);
+}
+
+.checkbox-wrapper input + label::after, 
+.radio-wrapper input + label::after {
+  content: none;
+}
+
+.checkbox-wrapper input:checked + label::after, 
+.radio-wrapper input:checked + label::after {
+  content: "";
+}
+
 .hero-form label {
   margin: 0 5px;
 }
 
 .hero-form button {
   border: none;
-  color: #fce138;
+  color: var(--primary-colour);
   font-size: 16px;
   padding: 10px 20px;
   border-radius: 10px;
-  background-color: #024e76;
+  background-color: var(--secondary-colour);
 }
 
 /* This section is for the titles of each partition.*/
@@ -178,18 +246,18 @@ section {
   width: 50%;
   padding: 20px;
   font-size: 48px;
-  color: #024e76;
+  color: var(--secondary-colour);
   text-align: center;
   margin: 0 auto 35px auto;
   border-bottom: solid 3px;
 }
 
 .primary-border {
-  border-color: #fce138;
+  border-color: var(--primary-colour);
 }
 
 .secondary-border {
-  border-color: #39a6b2;
+  border-color: var(--tertiary-colour);
 }
 
 /* This section is for the 'What We Do'.*/
@@ -197,14 +265,14 @@ section {
   width: 80%; 
   margin: 0 auto;
   font-size: 20px;
-  color: #39a6b2;
+  color: var(--tertiary-colour);
   line-height: 1.7;
   text-align: center;
 }
 
 /* This section is for the 'What You Do'.*/
 .steps {
-  background: #fce138;
+  background: var(--primary-colour);
 }
 
 .step {
@@ -218,13 +286,13 @@ section {
 }
 
 .step:not(:last-child){
-  border-bottom: 1px solid #39a6b2; 
+  border-bottom: 1px solid var(--tertiary-colour); 
 }
 
 .step h3 {
   flex: 1 30%;
   font-size: 46px;
-  color: #024e76;
+  color: var(--secondary-colour);
 }
 
 .step-info {
@@ -249,13 +317,13 @@ section {
 
 .step-text p {
   font-size: 18px;
-  color: #39a6b2;
+  color: var(--tertiary-colour);
 }
 
 .step-text h4 {
   font-size: 26px;
   line-height: 1.5;
-  color: #024e76;
+  color: var(--secondary-colour);
 }
 
 /* This section is for the 'Meet The Trainers'.*/
@@ -270,8 +338,8 @@ section {
 .trainer {
   flex: 1;
   margin: 20px;
-  color: #fce138;
-  background: #024e76;
+  color: var(--primary-colour);
+  background: var(--secondary-colour);
 }
 
 .trainer img {
@@ -299,11 +367,11 @@ section {
 
 /*This section is for the 'Reach Out'.*/
 .contact {
-  background: #024e76;
+  background: var(--secondary-colour);
 }
 
 .contact h2 {
-  color: #fce138;
+  color: var(--primary-colour);
 }
 
 .contact-info {
@@ -327,7 +395,7 @@ section {
 
 .contact-info h3 {
   font-size: 32px;
-  color: #fce138;
+  color: var(--primary-colour);
 }
 
 .contact-info p, .contact-info address {
@@ -342,11 +410,11 @@ section {
   display: block;
   font-size: 16px;
   margin-top: 5px;
-  color: #024e76;
+  color: var(--secondary-colour);
   border-radius: 10px;
   padding: 7px 15px;
   margin-bottom: 15px;
-  border: 1px solid #024e76;
+  border: 1px solid var(--secondary-colour);
   background-color: rgba(255,255,255, 0.75);
 }
 
@@ -360,14 +428,14 @@ section {
   border: none;
   padding: 15px 0;
   font-size: 16px;
-  color: #024e76;
+  color: var(--secondary-colour);
   text-align: center;
   border-radius: 10px;
-  background: #fce138;
+  background: var(--primary-colour);
 }
 
 .contact-info a {
-  color: #fce138;
+  color: var(--primary-colour);
 }
 
 /*This section is for utilities.*/
