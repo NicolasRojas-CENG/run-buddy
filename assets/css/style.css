@@ -1,3 +1,9 @@
+:root {
+  --primary-colour: #fce138;
+  --secondary-colour: #024e76;
+  --tertiary-colour: #39a6b2;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,67 +11,90 @@
 }
 
 body {
-  color: #39a6b2;
+  color: var(--tertiary-colour);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 /* This section of styling is for the header. */
 
 header {
+  top: 0;
+  display: flex;
+  z-index: 9999;
+  flex-wrap: wrap;
+  position: -webkit-sticky;
+  position: sticky;
   padding: 20px 35px;
-  background-color: #39a6b2;
+  background-color: var(--tertiary-colour);
+  justify-content: space-between;
+  background-image: url(../images/hero-bg.jpg);
+  background-size: cover;
+  background-position: 80%;
+  background-attachment: fixed;
 }
 
 header a {
-  color: #fce138;
+  color: var(--primary-colour);
   text-decoration: none;
 }
 header h1 {
   margin: 0;
   font-size: 36px;
-  display: inline;
-  color: #fce138;
+  color: var(--primary-colour);
   font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 header nav {
-  float: right;
   margin: 7px 0;
 }
 
-header nav ul li {
-  display: inline;
+header nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header nav ul li a {
-  margin: 0 30px;
-  font-size: 22px;
+  padding: 10px 15px;
+  font-size: 1.55vw;
   font-weight: lighter;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+header nav ul li a:hover {
+  color: var(--secondary-colour);
+  text-shadow: none;
+  background: var(--primary-colour);
+  border-radius: 15px;
 }
 
 /* This section of styling is for the footer. */
 
 footer {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
   padding: 40px 35px;
-  background-color: #fce138;
+  background-color: var(--primary-colour);
+  justify-content: space-between;
 }
 
 footer h2 {
   margin: 0;
-  color: #024e76;
-  display: inline;
+  color: var(--secondary-colour);
   font-size: 30px;
 }
 
 footer div {
-  float: right;
   line-height: 1.5;
   text-align: right;
 }
 
 footer a {
-  color: #024e76;
+  color: var(--secondary-colour);
 }
 
 section {
@@ -74,27 +103,47 @@ section {
 
 /* This section is for the form.*/
 .hero {
-  height: 600px;
-  position: relative;
+  display: flex;
+  flex-wrap: wrap;
   background-size: cover;
+  justify-content: center;
+  align-items: flex-start;
   background-position: center;
   background-image: url(../images/hero-bg.jpg);
+  background-position: 80%;
+  background-attachment: fixed;
+}
+
+.hero-cta {
+  width: 35%;
+  margin: 3.5%;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: right;
+}
+
+.hero-cta h2 {
+  font-size: 55px;
+  color: var(--primary-colour);
+  font-style: italic;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero-form {
-  right: 140px;
-  width: 500px;
-  bottom: 120px;
+  width: 40%;
+  margin: 3.5%;
   padding: 20px;
-  color: #024e76;
-  position: absolute;
-  background-color: #fce138;
-  border: solid 3px #024e76;
+  color: var(--secondary-colour);
+  border-radius: 15px;
+  border: 3px solid var(--secondary-colour);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: rgba(252, 255, 56, 0.8);
 }
 
 .hero-form h3 {
-  font-size: 24px;
   margin: 0;
+  font-size: 24px;
 }
 
 .hero-form p {
@@ -105,10 +154,78 @@ section {
   width: 100%;
   display: block;
   font-size: 16px;
-  color: #024e76;
+  color: var(--secondary-colour);
   padding: 7px 15px;
   margin-bottom: 15px;
-  border: solid 1px #024e76;
+  border-radius: 10px;
+  border: 1px solid var(--secondary-colour);
+  background-color: rgba(255,255,255, 0.75);
+}
+
+.form-input:focus{
+  background-color: rgba(255,255,255, 1);
+  outline: none;
+}
+
+/*This section is for the custom radio/checkbox buttons.*/
+.checkbox-wrapper input, .radio-wrapper input {
+  opacity: 0;
+}
+
+.checkbox-wrapper label, .radio-wrapper label {
+  left: 10px;
+  margin: 10px;
+  line-height: 1.6;
+  position: relative;
+}
+
+.checkbox-wrapper label::before, .radio-wrapper label::before {
+  top: -4px;
+  content: "";
+  width: 20px;
+  left: -30px;
+  height: 20px;
+  position: absolute; 
+  border: 1px solid var(--secondary-colour);  
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.radio-wrapper label::before {
+  border-radius: 50%;
+}
+
+.radio-wrapper label::after {
+  top: -3px;
+  content: "";
+  width: 20px;
+  left: -29px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  background: var(--secondary-colour);
+  background-image: radial-gradient(circle, var(--tertiary-colour), var(--secondary-colour));
+}
+
+.checkbox-wrapper label::after {
+  top: 1px;
+  content: "";
+  height: 6px;
+  width: 14px;
+  left: -26px;
+  position: absolute;
+  transform: rotate(-58deg);
+  border-left: 2px solid var(--secondary-colour);
+  border-bottom: 2px solid var(--secondary-colour);
+}
+
+.checkbox-wrapper input + label::after, 
+.radio-wrapper input + label::after {
+  content: none;
+}
+
+.checkbox-wrapper input:checked + label::after, 
+.radio-wrapper input:checked + label::after {
+  content: "";
 }
 
 .hero-form label {
@@ -117,85 +234,211 @@ section {
 
 .hero-form button {
   border: none;
-  color: #fce138;
+  color: var(--primary-colour);
   font-size: 16px;
   padding: 10px 20px;
-  background-color: #024e76;
+  border-radius: 10px;
+  background-color: var(--secondary-colour);
 }
 
 /* This section is for the titles of each partition.*/
 .section-title {
-  font-size: 55px;
-  color: #024e76;
-  margin-bottom: 35px;
-  display: inline-block;
+  width: 50%;
+  padding: 20px;
+  font-size: 48px;
+  color: var(--secondary-colour);
+  text-align: center;
+  margin: 0 auto 35px auto;
   border-bottom: solid 3px;
-  padding: 0px 100px 20px 100px;
 }
 
 .primary-border {
-  border-color: #fce138;
+  border-color: var(--primary-colour);
 }
 
 .secondary-border {
-  border-color: #39a6b2;
-}
-/* This section is for the 'What We Do'.*/
-.intro {
-  text-align: center;
+  border-color: var(--tertiary-colour);
 }
 
+/* This section is for the 'What We Do'.*/
 .intro p {
-  width: 80%;
-  font-size: 20px;
-  color: #39a6b2;
-  line-height: 1.7;
+  width: 80%; 
   margin: 0 auto;
+  font-size: 20px;
+  color: var(--tertiary-colour);
+  line-height: 1.7;
+  text-align: center;
 }
 
 /* This section is for the 'What You Do'.*/
 .steps {
-  text-align: center;
-  background: #fce138;
+  background: var(--primary-colour);
 }
 
-.steps span {
-  font-size: 38px;
+.step {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px auto;
+  align-items: center;
+  padding-bottom: 50px;
+  justify-content: space-between; 
 }
 
-.steps div {
-  margin-bottom: 80px;
+.step:not(:last-child){
+  border-bottom: 1px solid var(--tertiary-colour); 
 }
 
-.steps img {
-  width: 15%;
-  margin: 10px 0;
-}
-
-.steps h3 {
+.step h3 {
+  flex: 1 30%;
   font-size: 46px;
-  color: #024e76;
-  margin-top: 10px;
+  color: var(--secondary-colour);
 }
 
-.steps p {
-  font-size: 23px;
-  color: #39a6b2;
+.step-info {
+  flex: 2 70%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.step-img {
+  flex: 1 12%;
+  margin-right: 20px;
+}
+
+.step-img img {
+  max-width: 100%;
+}
+
+.step-text {
+  flex: 12;
+}
+
+.step-text p {
+  font-size: 18px;
+  color: var(--tertiary-colour);
+}
+
+.step-text h4 {
+  font-size: 26px;
+  line-height: 1.5;
+  color: var(--secondary-colour);
 }
 
 /* This section is for the 'Meet The Trainers'.*/
 .trainers {
-  text-align: center;
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .trainer {
-  width: 900px;
-  overflow: auto;
-  color: #fce138;
-  background: #024e76;
-  margin: 0 auto 30px auto;
+  flex: 1;
+  margin: 20px;
+  color: var(--primary-colour);
+  background: var(--secondary-colour);
 }
 
+.trainer img {
+  width: 100%;
+}
+
+.trainer-bio {
+  padding: 25px;
+  line-height: 1.3;
+}
+
+.trainer-bio h3 {
+  font-size: 28px;
+}
+
+.trainer-bio h4 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: lighter;
+}
+
+.trainer-bio p {
+  font-size: 17px;
+}
+
+/*This section is for the 'Reach Out'.*/
+.contact {
+  background: var(--secondary-colour);
+}
+
+.contact h2 {
+  color: var(--primary-colour);
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact-info > * {
+  flex: 1;
+  margin: 15px;
+}
+
+.contact-info iframe {
+  height: 400px;
+}
+
+.contact-info div {
+  color: white;
+}
+
+.contact-info h3 {
+  font-size: 32px;
+  color: var(--primary-colour);
+}
+
+.contact-info p, .contact-info address {
+  margin: 20px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  font-style: normal;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  display: block;
+  font-size: 16px;
+  margin-top: 5px;
+  color: var(--secondary-colour);
+  border-radius: 10px;
+  padding: 7px 15px;
+  margin-bottom: 15px;
+  border: 1px solid var(--secondary-colour);
+  background-color: rgba(255,255,255, 0.75);
+}
+
+.contact-form input:focus, .contact-form textarea:focus{
+  background-color: rgba(255,255,255, 1);
+  outline: none;
+}
+
+.contact-form button {
+  width: 100%;
+  border: none;
+  padding: 15px 0;
+  font-size: 16px;
+  color: var(--secondary-colour);
+  text-align: center;
+  border-radius: 10px;
+  background: var(--primary-colour);
+}
+
+.contact-info a {
+  color: var(--primary-colour);
+}
+
+/*This section is for utilities.*/
 .text-left {
   text-align: left;
 }
@@ -204,69 +447,115 @@ section {
   text-align: right;
 }
 
-.trainer img {
-  width: 35%;
-  float: left;
+.flex-row {
+  display: flex;
 }
 
-.trainer-bio {
-  width: 65%;
-  float: left;
-  padding: 35px;
+/*Media query for smaller Desktop screens and smaller.*/
+@media screen and (max-width: 980px) {
+  header {
+    padding-bottom: 0;
+    position: relative;
+    justify-content: center;
+  }
+
+  header h1 {
+    width: 100%;
+    text-align: center;
+  }
+
+  header nav ul {
+    width: 100%;
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  header nav ul li a {
+    font-size: 20px;
+  }
+
+  .hero-cta, .hero-form {
+    width: 100%;
+  }
+  
+  .hero-cta {
+    text-align: center;
+  }
+
+  .section-title {
+    width: 80%;
+  }
+  
+  .trainer {
+    flex: 0 70%;
+  }
+  
+  .contact-info iframe{
+    flex: 1 100%;
+  }
+
+  footer h2, footer div {
+    width: 100%;
+    text-align: center;
+  }
 }
 
-.trainer-bio h3 {
-  font-size: 32px;
-  margin-bottom: 8px;
+/*Media query for tablets and smaller.*/
+@media screen and (max-width: 768px) {
+  section {
+    padding: 30px 15px;
+  }
+
+  .step h3 {
+    flex: 1 100%;
+    text-align: center;
+  }
+
+  .step-info {
+    flex: 2 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .step-img {
+    flex: 0 32%;
+    margin-right: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .step-text {
+    flex: 100%;  
+  }
 }
 
-.trainer-bio h4 {
-  font-size: 26px;
-  margin-bottom: 25px;
-  font-weight: lighter;
-}
+/*Media query for mobile phones and smaller.*/
+@media screen and (max-width: 575px) {
+  .hero-form button {
+    width: 100%;
+  }
 
-.trainer-bio p {
-  font-size: 17px;
-  line-height: 1.3;
-}
+  .section-title {
+    width: 95%;
+  }
 
-/*This section is for the 'Reach Out'.*/
-.contact{
-  text-align: center;
-  background: #024e76;
-}
+  .intro p {
+    width: 100%;
+  }
 
-.contact h2 {
-  color: #fce138;
-}
+  .trainer {
+    flex: 0 100%;
+  }
 
-.contact-info iframe{
-  width: 400px;
-  height: 400px;
-}
+  .contact-form {
+    order: 3;
+  }
 
-.contact-info div{
-  width: 410px;
-  color: white;
-  text-align: left;
-  vertical-align: top;
-  display: inline-block;
-  margin: 30px 0 0 60px;
-}
+  .contact-info {
+    text-align: center;
+  }
 
-.contact-info h3{
-  font-size: 32px;
-  color: #fce138;
-}
-
-.contact-info p, .contact-info address{
-  margin:  20px 0;
-  font-size: 20px;
-  line-height: 1.5;
-  font-style: normal;
-}
-
-.contact-info a{
-  color: #fce138;
+  .contact-info > * {
+    flex: 0 100%;
+  }
 }
